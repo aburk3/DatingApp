@@ -19,9 +19,11 @@ namespace DatingApp.API.Controllers
 		}
 		// GET api/values
 		[HttpGet]
-		public ActionResult<IEnumerable<string>> Get()
+		public IActionResult GetValues()
 		{
-			return new string[] { "value1", "value3" };
+			var values = _context.Values.ToList();
+
+			return Ok(values);
 		}
 
 		// GET api/values/5
